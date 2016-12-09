@@ -1,2 +1,4 @@
 # Resized-PSNR
 Resized-PSNR is an objective quality metric for omnidirectional video.
+According to the projection relation of sphere and equirectangular, the oversampling rate can be calculate in every area. If the sampling rate in equator is 1, horizontally, each latitude φ (whose circumference is given by cos φ) is stretched to a unit length to ﬁt in a rectangle. Therefore, the horizontal sampling density at latitude φ is given by 1/cos φ, which tends to inﬁnity near the poles.
+To consider the distortion of format transformation, we have to resized the equirectangular to ensure the sampling density is the same in every area. Therefore, refer to the M1023 purposed by Shanghai University, we resized the equirectangular into Sinusoidal Projection. Then we calculate the MSE of every pixel in resized area and calculate the PSNR of the resized video.
