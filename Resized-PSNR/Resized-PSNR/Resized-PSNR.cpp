@@ -150,6 +150,10 @@ int main(int argc, char* argv[]) {
 					diff_y += d * d;
 				}
 			}
+			size_y = 0;
+			for (i = 0; i < height; i++) {
+				size_y += PointPerlineY[i];
+			}
 			double psrR_Y = (float)(10 * log10(65025.0f * size_y / diff_y));
 			printf("    %.4f", psrR_Y);
 			psnr_sphere_Y += psrR_Y;
@@ -170,6 +174,10 @@ int main(int argc, char* argv[]) {
 						d = p*OriginalFileBuffer[width*height + j*width / 2 + (int)floor(RePointPositonUV[i])] + q*OriginalFileBuffer[width*height + j*width / 2 + (int)floor(RePointPositonUV[i]) + 1] - p*ReconFileBuffer[width*height + j*width / 2 + (int)floor(RePointPositonUV[i])] - q*ReconFileBuffer[width*height + j*width / 2 + (int)floor(RePointPositonUV[i]) + 1];//经纬图双线性插值到正弦映射
 					diff_u += d * d;
 				}
+			}
+			size_uv = 0;
+			for (i = 0; i < height/2; i++) {
+				size_uv += PointPerlineUV[i];
 			}
 			double psrR_U = (float)(10 * log10(65025.0f * size_uv / diff_u));
 
